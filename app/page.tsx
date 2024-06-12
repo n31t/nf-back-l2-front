@@ -13,7 +13,7 @@ export default function Home() {
   const [token, setToken] = useState('');
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => {
-    socket = io("http://localhost:3939");
+    socket = io(process.env.REACT_APP_BACKEND_URL || "http://localhost:3939");
 
     socket.on("connect", () => {
       console.log("connected");
