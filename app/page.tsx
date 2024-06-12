@@ -7,13 +7,15 @@ import { Socket, io } from "socket.io-client";
 import Chat from "./component/chat"; 
 import { DefaultEventsMap } from "@socket.io/component-emitter";
 
+
 let socket: Socket<DefaultEventsMap, DefaultEventsMap> | null = null;
 
 export default function Home() {
   const [token, setToken] = useState('');
   const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => {
-    socket = io(process.env.REACT_APP_BACKEND_URL || "http://localhost:3939");
+    socket = io("https://nf-hw-backend-2.onrender.com");
+    console.log("https://nf-hw-backend-2.onrender.com");
 
     socket.on("connect", () => {
       console.log("connected");

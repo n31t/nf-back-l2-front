@@ -56,7 +56,7 @@ export default function Chat({ socket, token }: ChatProps) {
   }, [socket]);
 
   useEffect(() => {
-    fetch('http://localhost:3939/api/v1/messages/chat/666977d112e818e77e20f5b4')
+    fetch(`https://nf-hw-backend-2.onrender.com/api/v1/messages/chat/666977d112e818e77e20f5b4`)
       .then(response => response.json())
       .then(data => setMessages(data))
       .catch(error => console.error('Error:', error));
